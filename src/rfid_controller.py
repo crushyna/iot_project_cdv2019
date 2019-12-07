@@ -9,8 +9,7 @@ class RfidController:
     def read_rfid():
         try:
             id, text = RfidController.reader.read()
-            print(id)
-            print(text)
+
         finally:
             GPIO.cleanup()
 

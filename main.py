@@ -1,4 +1,5 @@
 from src.rfid_controller import RfidController
+import time
 import signal
 import sys
 
@@ -17,6 +18,7 @@ def main():
         print('Hello!')
         id, text = RfidController.read_rfid()
         print(id, text)
+        time.sleep(2)
 
 
 if __name__ == "__main__":
