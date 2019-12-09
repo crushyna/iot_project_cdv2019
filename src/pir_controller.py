@@ -11,13 +11,17 @@ class PIRController:
     @staticmethod
     def read_pir2():
         try:
-            print("PIR check")
-            if GPIO.input(PIR_PIN):
-                print("Motion detected!")
-                time.sleep(1)
+            print("PIR Module Test (CTRL+C to exit)")
+            time.sleep(1)
+            print("Ready")
+            while True:
+                if GPIO.input(PIR_PIN):
+                    print("Motion detected!")
+                    time.sleep(1)
+                else:
+                    print("No motion!")
+                    GPIO.cleanup()
 
-            else:
-                GPIO.cleanup()
-
-        finally:
+        except KeyboardInterrupt:
+            print("Quit")
             GPIO.cleanup()

@@ -1,3 +1,4 @@
+import time
 import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
 
@@ -9,13 +10,21 @@ class RfidController:
     def read_rfid():
         try:
             print('RFID check')
-            if RfidController.reader.read():
-                id, text = RfidController.reader.read()
-                GPIO.cleanup()
-                return id, text
+            time.sleep(1)
+            while True:
+                if RfidController.reader.read():
+                    print('Card detected!')
+                    # id, text = RfidController.reader.read()
+                    # GPIO.cleanup()
+                    # return id, text
 
-            else:
-                GPIO.cleanup()
+                else:
+                    print('No card!')
+                    GPIO.cleanup()
 
-        finally:
+        # finally:
+        #   GPIO.cleanup()
+
+        except KeyboardInterrupt:
+            print("Quit")
             GPIO.cleanup()
