@@ -15,10 +15,13 @@ class PIRController:
             while True:
                 if GPIO.input(PIR_PIN):
                     print("Motion detected!")
-                    time.sleep(1)
-                else:
-                    print("No motion!")
                     GPIO.cleanup()
+                    time.sleep(1)
+                    break
+                else:
+                    print("no motion!")
+                    GPIO.cleanup()
+                    time.sleep(1)
                     break
 
         except KeyboardInterrupt:
