@@ -1,4 +1,5 @@
 from src.rfid_controller import RfidController
+from src.PIR_func2 import PIRController
 import time
 import signal
 import sys
@@ -17,7 +18,16 @@ def main():
     while 1:
         print('Hello!')
         id, text = RfidController.read_rfid()
-        print(id, text)
+        # TODO: id & text do bazy danych,
+        #  access = zielony, denial = czerwony
+
+        # TODO: równoległa funkcja zbliżeniowa
+        PIRController.read_pir2()
+
+        #  if 1 then żółty (5 sec)
+
+        # print(id, text)
+
         time.sleep(2)
 
 

@@ -8,6 +8,7 @@ class RfidController:
     @staticmethod
     def read_rfid():
         try:
+            print('RFID check')
             id, text = RfidController.reader.read()
 
         finally:
