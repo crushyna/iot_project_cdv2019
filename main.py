@@ -1,5 +1,5 @@
 from src.rfid_controller import RfidController
-from src.PIR_func2 import PIRController
+from src.pir_controller import PIRController
 import time
 import signal
 import sys
