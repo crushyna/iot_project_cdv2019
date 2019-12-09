@@ -4,7 +4,6 @@ from mfrc522 import SimpleMFRC522
 
 
 class RfidController:
-    reader = SimpleMFRC522()
 
     @staticmethod
     def read_rfid():
@@ -12,15 +11,19 @@ class RfidController:
             print('RFID check')
             time.sleep(1)
             while True:
-                if RfidController.reader.read():
+                reader = SimpleMFRC522()
+                if reader.read_no_block():
                     print('Card detected!')
+                    time.sleep(2)
                     # id, text = RfidController.reader.read()
                     # GPIO.cleanup()
                     # return id, text
 
                 else:
                     print('No card!')
+                    time.sleep(2)
                     GPIO.cleanup()
+                    break
 
         # finally:
         #   GPIO.cleanup()
