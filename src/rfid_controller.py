@@ -12,15 +12,18 @@ class RfidController:
             time.sleep(1)
             while True:
                 reader = SimpleMFRC522()
-                if reader.read_no_block():
-                    print('Card detected!')
-                    time.sleep(2)
+                id = reader.read_no_block()
+                if id is None:
+                    id = id = reader.read_no_block()
+                    if id is None:
+                        print('no chip present')
+                        time.sleep(1)
                     # id, text = RfidController.reader.read()
                     # GPIO.cleanup()
                     # return id, text
 
                 else:
-                    print('No card!')
+                    print('Card detected!')
                     time.sleep(2)
                     GPIO.cleanup()
                     break

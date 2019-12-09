@@ -16,7 +16,7 @@ signal.signal(signal.SIGINT, signal_handler)
 
 def main():
     while 1:
-        print('Hello!')
+        print('Hello!\n')
         RfidController.read_rfid()
         # TODO: id & text do bazy danych,
         #  access = zielony, denial = czerwony
