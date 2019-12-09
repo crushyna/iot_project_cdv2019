@@ -18,9 +18,6 @@ class RfidController:
                     time.sleep(1)
                     GPIO.cleanup()
                     break
-                    # id, text = RfidController.reader.read()
-                    # GPIO.cleanup()
-                    # return id, text
 
                 else:
                     id, text = reader.read()
@@ -28,9 +25,6 @@ class RfidController:
                     print(text)
                     time.sleep(1)
                     break
-
-        # finally:
-        #   GPIO.cleanup()
 
         except KeyboardInterrupt:
             print("Quit")

@@ -18,17 +18,16 @@ def main():
     while 1:
         print('\n---- Hello!')
         RfidController.read_rfid()
+        
         # TODO: id & text do bazy danych,
         #  access = zielony, denial = czerwony
 
-        # TODO: równoległa funkcja zbliżeniowa
-        PIRController.read_pir2()
-
+        # TODO: równoległa funkcja zbliżeniowa - DONE
         #  if 1 then żółty (5 sec)
-
-        # print(id, text)
-
-        time.sleep(2)
+        
+        PIRController.read_pir2()        
+        
+        time.sleep(1)
 
 
 if __name__ == "__main__":
