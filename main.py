@@ -21,9 +21,9 @@ def main():
         
         # TODO: id & text do bazy danych,
         #  access = zielony, denial = czerwony
-
-        # TODO: równoległa funkcja zbliżeniowa - DONE
-        #  if 1 then żółty (5 sec)
+        
+        # TODO: rownolegla funkcja zblizeniowa - DONE
+        #  if 1 then zolty (5 sec)
         
         PIRController.read_pir2()        
         
