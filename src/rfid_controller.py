@@ -1,6 +1,7 @@
 import time
 import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
+from src.azure_controller import AzureController
 from src.led_controller import LedController
 
 class RfidController:
@@ -21,8 +22,9 @@ class RfidController:
 
                 else:
                     id, text = reader.read()
-                    print(id)
-                    print(text)
+
+                    AzureController.change_user_status(id, text)
+
                     # LedController.test_blink() # not working, OUTPUT error.
                     time.sleep(1)
                     break
