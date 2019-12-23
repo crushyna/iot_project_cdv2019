@@ -23,7 +23,7 @@ class RfidController:
                     id, text = reader.read()
                     print(id)
                     print(text)
-                    LedController.test_blink()
+                    # LedController.test_blink() # not working, OUTPUT error.
                     time.sleep(1)
                     break
 
