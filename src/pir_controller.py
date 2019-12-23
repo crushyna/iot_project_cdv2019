@@ -12,7 +12,6 @@ class PIRController:
         GPIO.setup(PIR_PIN, GPIO.IN)
         try:
             print("PIR check")
-            time.sleep(1)
             while True:
                 if GPIO.input(PIR_PIN):
                     print("Motion detected!")

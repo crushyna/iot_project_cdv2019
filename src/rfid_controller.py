@@ -10,7 +10,6 @@ class RfidController:
     def read_rfid():
         try:
             print('RFID check')
-            time.sleep(1)
             while True:
                 reader = SimpleMFRC522()
                 id = reader.read_id_no_block()
