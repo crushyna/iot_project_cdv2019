@@ -27,7 +27,7 @@ def main():
         
         PIRController.read_pir2()        
         
-        time.sleep(1)
+        time.sleep(0.25)
 
 
 if __name__ == "__main__":

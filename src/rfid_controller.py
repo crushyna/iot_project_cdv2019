@@ -16,14 +16,14 @@ class RfidController:
                 id = reader.read_id_no_block()
                 if id is None:
                     print('no chip present')
-                    time.sleep(1)
+                    time.sleep(0.1)
                     GPIO.cleanup()
                     break
 
                 else:
                     id, text = reader.read()
                     AzureController.change_user_status(id, text)
-                    time.sleep(0.25)
+                    time.sleep(1)
                     break
 
         except KeyboardInterrupt:

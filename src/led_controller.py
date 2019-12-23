@@ -30,7 +30,7 @@ class LedController:
 
         print(f"Test LED ON; pin {led_test_pin}")
         GPIO.output(led_test_pin, GPIO.HIGH)
-        time.sleep(1)
+        time.sleep(0.5)
 
         print("Test LED OFF; pin {led_test_pin}")
         GPIO.output(led_test_pin, GPIO.LOW)
