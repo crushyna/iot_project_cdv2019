@@ -22,11 +22,8 @@ class RfidController:
 
                 else:
                     id, text = reader.read()
-
                     AzureController.change_user_status(id, text)
-
-                    # LedController.test_blink() # not working, OUTPUT error.
-                    time.sleep(1)
+                    time.sleep(0.25)
                     break
 
         except KeyboardInterrupt:
