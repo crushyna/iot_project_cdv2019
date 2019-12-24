@@ -1,8 +1,10 @@
 import time
 import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
+from main import azuredb1
 from src.azure_controller import AzureDBController
 from src.led_controller import LedController
+from main import azuredb1
 
 
 class RfidController:
@@ -23,7 +25,7 @@ class RfidController:
                 else:
                     # when card is detected:
                     card_id, card_text = reader.read()
-                    user_access = AzureDBController.check_user_access(card_id, card_text)
+                    user_access = azuredb1.check_user_access(card_id, card_text)
                     # check is user has access ([HasAccess] column)
                     if user_access:
                         AzureDBController.switch_user_status(card_text)

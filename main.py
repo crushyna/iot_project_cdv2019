@@ -15,22 +15,25 @@ def signal_handler(signal, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 
-def main():
-    while 1:
-        print('\n---- Hello!')
-        RfidController.read_rfid()
-        
-        # TODO: id & text do bazy danych,
-        #  access = zielony, denial = czerwony
-        
-        # TODO: rownolegla funkcja zblizeniowa - DONE
-        #  if 1 then zolty (5 sec)
-        
-        PIRController.read_pir2()        
-        
-        time.sleep(0.1)
+class Main:
+
+    @staticmethod
+    def main():
+        while 1:
+            print('\n---- Hello!')
+            RfidController.read_rfid()
+
+            # TODO: id & text do bazy danych,
+            #  access = zielony, denial = czerwony
+
+            # TODO: rownolegla funkcja zblizeniowa - DONE
+            #  if 1 then zolty (5 sec)
+
+            PIRController.read_pir2()
+
+            time.sleep(0.1)
 
 
 if __name__ == "__main__":
     azuredb1 = AzureDBController()
-    main()
+    Main()
