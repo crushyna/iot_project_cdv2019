@@ -1,5 +1,6 @@
 from src.rfid_controller import RfidController
 from src.pir_controller import PIRController
+from src.azure_controller import AzureDBController
 import time
 import signal
 import sys
@@ -31,4 +32,5 @@ def main():
 
 
 if __name__ == "__main__":
+    azuredb1 = AzureDBController()
     main()
