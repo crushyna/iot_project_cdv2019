@@ -4,6 +4,7 @@ from src.azure_controller import AzureDBController
 import time
 import signal
 import sys
+import multiprocessing
 
 
 # to exit program gracefully
@@ -21,7 +22,7 @@ class Main:
     def main():
         while 1:
             print('\n---- Hello!')
-            RfidController.read_rfid()
+            # RfidController.read_rfid()
 
             # TODO: id & text do bazy danych,
             #  access = zielony, denial = czerwony
@@ -29,11 +30,10 @@ class Main:
             # TODO: rownolegla funkcja zblizeniowa - DONE
             #  if 1 then zolty (5 sec)
 
-            PIRController.read_pir2()
+            # PIRController.read_pir2()
 
             time.sleep(0.1)
 
 
 if __name__ == "__main__":
-    azuredb1 = AzureDBController()
     Main()

@@ -17,9 +17,9 @@ class AzureDBController:
 
     def execute_query_one_row(self, query_string: str):
         self.cursor.execute(query_string)
-        row = self.cursor.fetchone()
-        while row:
-            print(row)
+        row = self.cursor.fetchall()
+        for each_row in row:
+            print(each_row[0])
 
         row = self.cursor.fetchone()
         return row
@@ -42,27 +42,34 @@ class AzureDBController:
         current_status = f"""SELECT [IsPresent]
                             FROM [dbo].[Persons]
                             WHERE [RfidCardId] = {card_id}
-                            AND [RfidCardText] = '{card_text}'"""
+                            AND [RfidCardText] = '{card_text}';"""
 
         if current_status:
             query = f"""UPDATE [dbo].[Persons]
                         SET [IsPresent] = 0
                         WHERE [RfidCardId] = {card_id}
-                        AND [RfidCardText] = 'test1';"""
+                        AND [RfidCardText] = '{card_text}';"""
         else:
             query = f"""UPDATE [dbo].[Persons]
                         SET [IsPresent] = 0
-                        WHERE [RfidCardId] = 329308361597
+                        WHERE [RfidCardId] = {card_id}
                         AND [RfidCardText] = '{card_text}';"""
 
         return int(query)
 
-    def check_user_access(self, card_id: int, card_text: str):
+    @staticmethod
+    def check_user_access(card_id: int, card_text: str):
         query = f"""SELECT [HasAccess] 
                     FROM [dbo].[Persons]
                     WHERE [RfidCardId] = {card_id}
                     AND [RfidCardText] = '{card_text}'"""
 
-        result = self.execute_query_one_row(query)
+        result = azuredb1.execute_query_one_row(query)
 
-        return int(result)
+        return result
+
+    # 329308361597
+    # test1
+
+
+azuredb1 = AzureDBController()
