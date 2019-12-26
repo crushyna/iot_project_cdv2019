@@ -8,11 +8,20 @@ class AzureDBController:
         self.database = 'AccessControl'
         self.username = 'adminkamil'
         self.password = 'CDVprojekt2019!'
-        self.driver = '{ODBC Driver 17 for SQL Server}'
+        self.driver = '{FreeTDS}'
+        #self.driver = '{ODBC Driver 17 for SQL Server}'
+        self.driver_version = '7.4'
         self.cnxn = pyodbc.connect(
-            'DRIVER={0};SERVER={1};PORT=1433;DATABASE={2};UID={3};PWD={4}'.format(self.driver, self.server,
+            'DRIVER={0};SERVER={1};PORT=1433;DATABASE={2};UID={3};PWD={4};TDS_Version={5};'.format(self.driver, self.server,
+                                                                                  self.database, self.username,
+                                                                                  self.password, self.driver_version))
+        '''
+        self.cnxn = pyodbc.connect(
+            'DRIVER={0};SERVER={1};PORT=1433;DATABASE={2};UID={3};PWD={4};'.format(self.driver, self.server,
                                                                                   self.database, self.username,
                                                                                   self.password))
+                                                                                  '''
+        
         self.cursor = self.cnxn.cursor()
 
     def execute_query_one_row(self, query_string: str):
