@@ -23,13 +23,6 @@ class Main:
         while 1:
             print('\n---- Hello!')
             RfidController.read_rfid()
-
-            # TODO: id & text do bazy danych,
-            #  access = zielony, denial = czerwony
-
-            # TODO: rownolegla funkcja zblizeniowa - DONE
-            #  if 1 then zolty (5 sec)
-
             PIRController.read_pir2()
 
             time.sleep(0.1)

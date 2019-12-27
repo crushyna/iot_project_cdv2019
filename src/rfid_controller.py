@@ -26,9 +26,10 @@ class RfidController:
                     # when card is detected:
                     card_id, card_text = reader.read()
                     user_access = AzureDBController.check_user_access(card_id, card_text)
+
                     # check is user has access ([HasAccess] column)
                     if user_access:
-                        # AzureDBController.switch_user_status(card_text)
+                        AzureDBController.switch_user_status(card_text)
                         LedController.access_granted_blink()
                     else:
                         print("No access!")
