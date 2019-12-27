@@ -97,4 +97,4 @@ class AzureDBController:
 
 
 azuredb1 = AzureDBController()
-azuredb1.switch_user_status(329308361597, 'test1')
+# azuredb1.switch_user_status(329308361597, 'test1')

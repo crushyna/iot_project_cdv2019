@@ -34,8 +34,9 @@ class RfidController:
                     else:
                         print("No access!")
                         LedController.access_denied_blink()
-                    time.sleep(1)
-                    break
+                        time.sleep(1)
+
+                    continue
 
         except KeyboardInterrupt:
             print("Quit")
