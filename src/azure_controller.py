@@ -87,6 +87,7 @@ class AzureDBController:
                     AND [RfidCardText] = '{card_text}'"""
 
         result = azuredb1.execute_select(query)
+        print(f"HasAccess: {result}")
 
         return result
 

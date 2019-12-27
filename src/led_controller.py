@@ -37,7 +37,7 @@ class LedController:
     @staticmethod
     def access_granted_blink():
         # GREEN
-        led_pin = 13
+        led_pin = 15
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(led_pin, GPIO.OUT)
         GPIO.setwarnings(False)
@@ -51,7 +51,7 @@ class LedController:
     @staticmethod
     def access_denied_blink():
         # RED
-        led_pin = 15
+        led_pin = 13
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(led_pin, GPIO.OUT)
         GPIO.setwarnings(False)
