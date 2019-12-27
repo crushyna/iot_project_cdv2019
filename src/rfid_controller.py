@@ -29,7 +29,7 @@ class RfidController:
 
                     # check is user has access ([HasAccess] column)
                     if user_access:
-                        AzureDBController.switch_user_status(card_text)
+                        AzureDBController.switch_user_status(card_id, card_text)
                         LedController.access_granted_blink()
                     else:
                         print("No access!")
