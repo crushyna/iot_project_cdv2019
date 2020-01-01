@@ -7,8 +7,8 @@ class PIRController:
 
     @staticmethod
     def read_pir2():
-        GPIO.setmode(GPIO.BOARD)
         PIR_PIN = 40
+        GPIO.setmode(GPIO.BOARD)
         GPIO.setup(PIR_PIN, GPIO.IN)
         try:
             print("PIR check")
@@ -17,12 +17,12 @@ class PIRController:
                     print("Motion detected!")
                     LedController.motion_detected_blink()
                     GPIO.cleanup()
-                    time.sleep(0.1)
+                    time.sleep(0.5)
                     break
                 else:
                     print("no motion!")
                     GPIO.cleanup()
-                    time.sleep(0.1)
+                    time.sleep(0.5)
                     break
 
         except KeyboardInterrupt:
