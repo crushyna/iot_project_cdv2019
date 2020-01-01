@@ -22,8 +22,14 @@ class Main:
     def main():
         while 1:
             print('\n---- Hello!')
-            RfidController.read_rfid()
-            PIRController.read_pir2()
+            p1 = multiprocessing.Process(target=RfidController.read_rfid)
+            p2 = multiprocessing.Process(target=PIRController.read_pir2)
+
+            p1.start()
+            p2.start()
+
+            # RfidController.read_rfid()
+            # PIRController.read_pir2()
 
             time.sleep(0.1)
 
