@@ -20,18 +20,17 @@ class Main:
 
     @staticmethod
     def main():
-        while 1:
-            print('\n---- Hello!')
-            p2 = multiprocessing.Process(target=RfidController.read_rfid)
-            p2.start()
+        print('\n---- Hello!')
 
-            # RfidController.read_rfid()
-            # PIRController.read_pir2()
+        print("RFID process start: ")
+        p1 = multiprocessing.Process(target=RfidController.read_rfid)
+        p1.start()
+        print("PIR process start: ")
+        p2 = multiprocessing.Process(target=PIRController.read_pir2)
+        p2.start()
 
-            time.sleep(0.1)
+        time.sleep(0.5)
 
 
 if __name__ == "__main__":
     Main.main()
-    p1 = multiprocessing.Process(target=PIRController.read_pir2)
-    p1.start()

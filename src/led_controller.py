@@ -29,7 +29,7 @@ class LedController:
         # GPIO.setwarnings(False)
 
         GPIO.output(led_test_pin, GPIO.HIGH)
-        time.sleep(0.5)
+        time.sleep(1)
 
         GPIO.output(led_test_pin, GPIO.LOW)
         GPIO.cleanup()

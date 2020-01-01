@@ -16,12 +16,12 @@ class PIRController:
                 if GPIO.input(PIR_PIN):
                     print("Motion detected!")
                     LedController.motion_detected_blink()
-                    GPIO.cleanup()
+                    # GPIO.cleanup()
                     time.sleep(0.5)
                     continue
                 else:
                     print("no motion!")
-                    GPIO.cleanup()
+                    # GPIO.cleanup()
                     time.sleep(0.5)
                     continue
 
