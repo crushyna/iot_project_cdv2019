@@ -7,12 +7,12 @@ class PIRController:
 
     @staticmethod
     def read_pir2():
-        PIR_PIN = 40
-        GPIO.setmode(GPIO.BOARD)
-        GPIO.setup(PIR_PIN, GPIO.IN)
         try:
             print("PIR check")
             while True:
+                PIR_PIN = 40
+                GPIO.setmode(GPIO.BOARD)
+                GPIO.setup(PIR_PIN, GPIO.IN)
                 if GPIO.input(PIR_PIN):
                     print("Motion detected!")
                     LedController.motion_detected_blink()
