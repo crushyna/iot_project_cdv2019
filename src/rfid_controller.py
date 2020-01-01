@@ -20,7 +20,7 @@ class RfidController:
                     print('no chip present')
                     time.sleep(0.1)
                     GPIO.cleanup()
-                    break
+                    continue
 
                 else:
                     # when card is detected:

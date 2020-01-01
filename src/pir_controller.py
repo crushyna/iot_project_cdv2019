@@ -18,12 +18,12 @@ class PIRController:
                     LedController.motion_detected_blink()
                     GPIO.cleanup()
                     time.sleep(0.5)
-                    break
+                    continue
                 else:
                     print("no motion!")
                     GPIO.cleanup()
                     time.sleep(0.5)
-                    break
+                    continue
 
         except KeyboardInterrupt:
             print("Quit")
