@@ -25,6 +25,9 @@ class Main:
         print("RFID process start: ")
         p1 = multiprocessing.Process(target=RfidController.read_rfid)
         p1.start()
+
+        time.sleep(0.5)
+
         print("PIR process start: ")
         p2 = multiprocessing.Process(target=PIRController.read_pir2)
         p2.start()

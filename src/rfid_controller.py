@@ -24,6 +24,7 @@ class RfidController:
 
                 else:
                     # when card is detected:
+                    print('Card detected!')
                     card_id, card_text = reader.read()
                     user_access = AzureDBController.check_user_access(card_id, card_text)
 
