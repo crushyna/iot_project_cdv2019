@@ -10,7 +10,6 @@ class LedController:
         led_test_pin = 11
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(led_test_pin, GPIO.OUT)
-        # GPIO.setwarnings(False)
 
         print(f"Test LED ON; pin {led_test_pin}")
         GPIO.output(led_test_pin, GPIO.HIGH)
@@ -26,10 +25,9 @@ class LedController:
         led_test_pin = 11
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(led_test_pin, GPIO.OUT)
-        # GPIO.setwarnings(False)
 
         GPIO.output(led_test_pin, GPIO.HIGH)
-        time.sleep(0.2)
+        time.sleep(10)
 
         GPIO.output(led_test_pin, GPIO.LOW)
         GPIO.cleanup()
@@ -40,7 +38,6 @@ class LedController:
         led_pin = 15
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(led_pin, GPIO.OUT)
-        # GPIO.setwarnings(False)
 
         GPIO.output(led_pin, GPIO.HIGH)
         time.sleep(2)
@@ -54,12 +51,9 @@ class LedController:
         led_pin = 13
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(led_pin, GPIO.OUT)
-        # GPIO.setwarnings(False)
 
         GPIO.output(led_pin, GPIO.HIGH)
         time.sleep(2)
 
         GPIO.output(led_pin, GPIO.LOW)
         GPIO.cleanup()
-
-# LedController.test_blink()

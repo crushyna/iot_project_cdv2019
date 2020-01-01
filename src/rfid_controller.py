@@ -32,6 +32,7 @@ class RfidController:
                     if user_access:
                         AzureDBController.switch_user_status(card_id, card_text)
                         LedController.access_granted_blink()
+                        time.sleep(1)
                     else:
                         print("No access!")
                         LedController.access_denied_blink()
