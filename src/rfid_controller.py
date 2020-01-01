@@ -19,7 +19,7 @@ class RfidController:
                 if id is None:
                     print('no chip present')
                     time.sleep(0.1)
-                    GPIO.cleanup()
+                    # GPIO.cleanup()
                     continue
 
                 else:
